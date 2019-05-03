@@ -1,0 +1,7 @@
+data/mask.tar.gz
+data/mask
+weights/
+tbX/
+.ipynb_checkpoints
+*.pyc
+*.pth
