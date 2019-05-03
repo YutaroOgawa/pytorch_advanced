@@ -1,0 +1,6 @@
+data/VOCdevkit/
+data/VOCtrainval_11-May-2012.tar
+weights/
+.ipynb_checkpoints
+*.pyc
+*.pth
