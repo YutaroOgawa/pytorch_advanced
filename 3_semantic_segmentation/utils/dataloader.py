@@ -138,7 +138,7 @@ class VOCDataset(data.Dataset):
 
         # 2. アノテーション画像読み込み
         anno_file_path = self.anno_list[index]
-        anno_class_img = Image.open(anno_file_path)   # [高さ][幅][色RGB]
+        anno_class_img = Image.open(anno_file_path)   # [高さ][幅]
 
         # 3. 前処理を実施
         img, anno_class_img = self.transform(self.phase, img, anno_class_img)
