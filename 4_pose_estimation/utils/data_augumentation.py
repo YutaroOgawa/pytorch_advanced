@@ -1,5 +1,5 @@
 # 第4章姿勢推定のデータオーギュメンテーション
-# 実装に一部参考に使用
+# 実装の一部参考に使用
 # https://github.com/tensorboy/pytorch_Realtime_Multi-Person_Pose_Estimation/
 # のImageAugmentation.py
 # Released under the MIT license

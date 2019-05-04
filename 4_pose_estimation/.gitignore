@@ -1,5 +1,8 @@
+data/val2014/
+data/val2014.zip
 data/mask.tar.gz
-data/mask
+data/mask/
+data/COCO.json
 weights/
 tbX/
 .ipynb_checkpoints

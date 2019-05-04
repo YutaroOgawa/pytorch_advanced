@@ -1,5 +1,5 @@
 # 第4章姿勢推定のデータオーギュメンテーション
-# 実装に一部参考に使用
+# 実装の一部参考に使用
 # https://github.com/tensorboy/pytorch_Realtime_Multi-Person_Pose_Estimation/
 # Released under the MIT license
 
@@ -275,8 +275,8 @@ class DataTransform():
                 aug_croppad(),  # 切り出し
                 aug_flip(),  # 左右反転
                 remove_illegal_joint(),  # 画像からはみ出たアノテーションを除去
-                # Normalize_Tensor()  # 色情報の標準化とテンソル化
-                no_Normalize_Tensor()  # 本節のみ、色情報の標準化をなくす
+                Normalize_Tensor()  # 色情報の標準化とテンソル化
+                # no_Normalize_Tensor()  # 本節のみ、色情報の標準化をなくす
             ]),
             'val': Compose([
                 # 本書では検証は省略
