@@ -1,5 +1,14 @@
-data/
-vocab/
+data/aclImdb/
+data/entity_vector/
+data/vector_neologd/
+data/wiki-news-300d-1M.vec
+data/aclImdb_v1.tar.gz
+data/20170201.tar.bz2
+data/vector_neologd.zip
+data/wiki-news-300d-1M.vec.zip
+data/japanese_word2vec_vectors.vec
+data/IMDb_train.tsv
+data/IMDb_test.tsv
 weights/
 .ipynb_checkpoints
 *.pyc
