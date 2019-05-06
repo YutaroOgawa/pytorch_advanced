@@ -2,6 +2,12 @@
 # 実装参考に使用
 # https://github.com/huggingface/pytorch-pretrained-BERT
 
+# Copyright (c) 2018 Hugging Face
+# Released under the Apache License 2.0
+# https://github.com/huggingface/pytorch-pretrained-BERT/blob/master/LICENSE
+
+
+
 # 必要なパッケージのimport
 
 import copy
@@ -626,10 +632,9 @@ class BertForMaskedLM(nn.Module):
 
 
 # 学習済みモデルのロード
-def set_learned_params(net):
+def set_learned_params(net, weights_path = "./weights/pytorch_model.bin"):
 
     # セットするパラメータを読み込む
-    weights_path = "./weights/pytorch_model.bin"
     loaded_state_dict = torch.load(weights_path)
 
     # 現在のネットワークモデルのパラメータ名
