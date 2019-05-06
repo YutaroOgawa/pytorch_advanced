@@ -1,5 +1,13 @@
+
+# -*- coding: utf-8 -*-
+
+
 # https://github.com/activitynet/ActivityNet/tree/master/Crawler/Kinetics
 # を参考に一部改変
+# GitHub：activitynet/ActivityNet
+# Released under the The MIT License.
+# Copyright (c) 2015 ActivityNet
+# https://github.com/activitynet/ActivityNet/blob/master/LICENSE
 
 import argparse
 import glob

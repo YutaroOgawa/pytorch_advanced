@@ -218,7 +218,7 @@ class VideoDataset(torch.utils.data.Dataset):
             dir_path, self.img_tmpl, indices)  # リストに読み込む
 
         # 2. ラベルの取得し、idに変換する
-        label = (dir_path.split('/')[3].split('\\')[0])  # 注意：windowsOSの場合
+        label = (dir_path.split('/')[3].split('/')[0])  # 注意：windowsOSの場合
         label_id = self.label_id_dict[label]  # idを取得
 
         # 3. 前処理を実施
