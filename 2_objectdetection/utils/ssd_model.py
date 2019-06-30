@@ -523,9 +523,9 @@ def nm_suppression(boxes, scores, overlap=0.45, top_k=200):
 
     Parameters
     ----------
-    boxes : [閾値を超えたBBox数,4]
+    boxes : [確信度閾値（0.01）を超えたBBox数,4]
         BBox情報。
-    scores :[閾値を超えたBBox数]
+    scores :[確信度閾値（0.01）を超えたBBox数]
         confの情報
 
     Returns
@@ -539,7 +539,7 @@ def nm_suppression(boxes, scores, overlap=0.45, top_k=200):
     # returnのひな形を作成
     count = 0
     keep = scores.new(scores.size(0)).zero_().long()
-    # keep：torch.Size([閾値を超えたBBox数])、要素は全部0
+    # keep：torch.Size([確信度閾値を超えたBBox数])、要素は全部0
 
     # 各BBoxの面積areaを計算
     x1 = boxes[:, 0]
@@ -800,7 +800,7 @@ class SSD(nn.Module):
 
         if self.phase == "inference":  # 推論時
             # クラス「Detect」のforwardを実行
-            # 返り値のサイズは torch.Size([1, 21, 200, 5])
+            # 返り値のサイズは torch.Size([batch_num, 21, 200, 5])
             return self.detect(output[0], output[1], output[2])
 
         else:  # 学習時
@@ -885,7 +885,7 @@ class MultiBoxLoss(nn.Module):
         # pos_maskをloc_dataのサイズに変形
         pos_idx = pos_mask.unsqueeze(pos_mask.dim()).expand_as(loc_data)
 
-        # Positive DBoxのloc_dataと、ラベルloc_tを取得
+        # Positive DBoxのloc_dataと、教師データloc_tを取得
         loc_p = loc_data[pos_idx].view(-1, 4)
         loc_t = loc_t[pos_idx].view(-1, 4)
 
@@ -954,7 +954,7 @@ class MultiBoxLoss(nn.Module):
         # マスクの形を整形し、conf_dataに合わせる
         # pos_idx_maskはPositive DBoxのconfを取り出すマスクです
         # neg_idx_maskはHard Negative Miningで抽出したNegative DBoxのconfを取り出すマスクです
-        # pos：torch.Size([num_batch, 8732])→pos_idx_mask：torch.Size([num_batch, 8732, 21])
+        # pos_mask：torch.Size([num_batch, 8732])→pos_idx_mask：torch.Size([num_batch, 8732, 21])
         pos_idx_mask = pos_mask.unsqueeze(2).expand_as(conf_data)
         neg_idx_mask = neg_mask.unsqueeze(2).expand_as(conf_data)
 
