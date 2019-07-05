@@ -182,7 +182,7 @@ class ClassificationHead(nn.Module):
 class TrasformerClassification(nn.Module):
     '''Transformerでクラス分類させる'''
 
-    def __init__(self, text_embedding_vectors, d_model=300, max_seq_len=50, output_dim=2):
+    def __init__(self, text_embedding_vectors, d_model=300, max_seq_len=256, output_dim=2):
         super().__init__()
 
         # モデル構築
