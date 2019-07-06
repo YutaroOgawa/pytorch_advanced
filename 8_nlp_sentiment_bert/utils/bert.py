@@ -113,7 +113,7 @@ class BertEmbeddings(nn.Module):
         # 3. Transformer Positonal Embedding：
         # [0, 1, 2 ・・・]と文章の長さだけ、数字が1つずつ昇順に入った
         # [batch_size, seq_len]のテンソルposition_idsを作成
-        # position_idsにした以外、position_embeddings層から768次元のテンソルを取り出す
+        # position_idsを入力して、position_embeddings層から768次元のテンソルを取り出す
         seq_length = input_ids.size(1)  # 文章の長さ
         position_ids = torch.arange(
             seq_length, dtype=torch.long, device=input_ids.device)
@@ -396,7 +396,7 @@ class BertEncoder(nn.Module):
         if not output_all_encoded_layers:
             all_encoder_layers.append(hidden_states)
 
-        # attention_showのときは、attention_probs（1番最後の）もリターンする
+        # attention_showのときは、attention_probs（最後の12段目）もリターンする
         if attention_show_flg == True:
             return all_encoder_layers, attention_probs
         elif attention_show_flg == False:
