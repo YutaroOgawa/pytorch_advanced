@@ -76,7 +76,7 @@ class BertEmbeddings(nn.Module):
             config.vocab_size, config.hidden_size, padding_idx=0)
         # （注釈）padding_idx=0はidx=0の単語のベクトルは0にする。BERTのボキャブラリーのidx=0が[PAD]である。
 
-        # Transformer Positonal Embedding：位置情報テンソルをベクトルに変換
+        # Transformer Positional Embedding：位置情報テンソルをベクトルに変換
         # Transformerの場合はsin、cosからなる固定値だったが、BERTは学習させる
         # max_position_embeddings = 512　で文の長さは512単語
         self.position_embeddings = nn.Embedding(
@@ -110,7 +110,7 @@ class BertEmbeddings(nn.Module):
             token_type_ids = torch.zeros_like(input_ids)
         token_type_embeddings = self.token_type_embeddings(token_type_ids)
 
-        # 3. Transformer Positonal Embedding：
+        # 3. Transformer Positional Embedding：
         # [0, 1, 2 ・・・]と文章の長さだけ、数字が1つずつ昇順に入った
         # [batch_size, seq_len]のテンソルposition_idsを作成
         # position_idsを入力して、position_embeddings層から768次元のテンソルを取り出す
