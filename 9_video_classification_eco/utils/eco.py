@@ -59,7 +59,6 @@ class InceptionA(nn.Module):
             64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
         self.inception_3a_relu_1x1 = nn.ReLU(inplace=True)
 
-        #
         self.inception_3a_3x3_reduce = nn.Conv2d(
             192, 64, kernel_size=(1, 1), stride=(1, 1))
         self.inception_3a_3x3_reduce_bn = nn.BatchNorm2d(
@@ -71,7 +70,6 @@ class InceptionA(nn.Module):
             64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
         self.inception_3a_relu_3x3 = nn.ReLU(inplace=True)
 
-        #
         self.inception_3a_double_3x3_reduce = nn.Conv2d(
             192, 64, kernel_size=(1, 1), stride=(1, 1))
         self.inception_3a_double_3x3_reduce_bn = nn.BatchNorm2d(
@@ -88,7 +86,6 @@ class InceptionA(nn.Module):
             96, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
         self.inception_3a_relu_double_3x3_2 = nn.ReLU(inplace=True)
 
-        #
         self.inception_3a_pool = nn.AvgPool2d(
             kernel_size=3, stride=1, padding=1)
         self.inception_3a_pool_proj = nn.Conv2d(
@@ -99,12 +96,10 @@ class InceptionA(nn.Module):
 
     def forward(self, x):
 
-        #
         out1 = self.inception_3a_1x1(x)
         out1 = self.inception_3a_1x1_bn(out1)
         out1 = self.inception_3a_relu_1x1(out1)
 
-        #
         out2 = self.inception_3a_3x3_reduce(x)
         out2 = self.inception_3a_3x3_reduce_bn(out2)
         out2 = self.inception_3a_relu_3x3_reduce(out2)
@@ -112,7 +107,6 @@ class InceptionA(nn.Module):
         out2 = self.inception_3a_3x3_bn(out2)
         out2 = self.inception_3a_relu_3x3(out2)
 
-        #
         out3 = self.inception_3a_double_3x3_reduce(x)
         out3 = self.inception_3a_double_3x3_reduce_bn(out3)
         out3 = self.inception_3a_relu_double_3x3_reduce(out3)
@@ -123,13 +117,11 @@ class InceptionA(nn.Module):
         out3 = self.inception_3a_double_3x3_2_bn(out3)
         out3 = self.inception_3a_relu_double_3x3_2(out3)
 
-        #
         out4 = self.inception_3a_pool(x)
         out4 = self.inception_3a_pool_proj(out4)
         out4 = self.inception_3a_pool_proj_bn(out4)
         out4 = self.inception_3a_relu_pool_proj(out4)
 
-        #
         outputs = [out1, out2, out3, out4]
 
         return torch.cat(outputs, 1)
@@ -140,14 +132,13 @@ class InceptionB(nn.Module):
 
     def __init__(self):
         super(InceptionB, self).__init__()
-        #
+        
         self.inception_3b_1x1 = nn.Conv2d(
             256, 64, kernel_size=(1, 1), stride=(1, 1))
         self.inception_3b_1x1_bn = nn.BatchNorm2d(
             64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
         self.inception_3b_relu_1x1 = nn.ReLU(inplace=True)
 
-        #
         self.inception_3b_3x3_reduce = nn.Conv2d(
             256, 64, kernel_size=(1, 1), stride=(1, 1))
         self.inception_3b_3x3_reduce_bn = nn.BatchNorm2d(
@@ -159,7 +150,6 @@ class InceptionB(nn.Module):
             96, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
         self.inception_3b_relu_3x3 = nn.ReLU(inplace=True)
 
-        #
         self.inception_3b_double_3x3_reduce = nn.Conv2d(
             256, 64, kernel_size=(1, 1), stride=(1, 1))
         self.inception_3b_double_3x3_reduce_bn = nn.BatchNorm2d(
@@ -176,7 +166,6 @@ class InceptionB(nn.Module):
             96, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
         self.inception_3b_relu_double_3x3_2 = nn.ReLU(inplace=True)
 
-        #
         self.inception_3b_pool = nn.AvgPool2d(
             kernel_size=3, stride=1, padding=1)
         self.inception_3b_pool_proj = nn.Conv2d(
@@ -186,12 +175,11 @@ class InceptionB(nn.Module):
         self.inception_3b_relu_pool_proj = nn.ReLU(inplace=True)
 
     def forward(self, x):
-        #
+        
         out1 = self.inception_3b_1x1(x)
         out1 = self.inception_3b_1x1_bn(out1)
         out1 = self.inception_3b_relu_1x1(out1)
 
-        #
         out2 = self.inception_3b_3x3_reduce(x)
         out2 = self.inception_3b_3x3_reduce_bn(out2)
         out2 = self.inception_3b_relu_3x3_reduce(out2)
@@ -199,7 +187,6 @@ class InceptionB(nn.Module):
         out2 = self.inception_3b_3x3_bn(out2)
         out2 = self.inception_3b_relu_3x3(out2)
 
-        #
         out3 = self.inception_3b_double_3x3_reduce(x)
         out3 = self.inception_3b_double_3x3_reduce_bn(out3)
         out3 = self.inception_3b_relu_double_3x3_reduce(out3)
@@ -210,13 +197,11 @@ class InceptionB(nn.Module):
         out3 = self.inception_3b_double_3x3_2_bn(out3)
         out3 = self.inception_3b_relu_double_3x3_2(out3)
 
-        #
         out4 = self.inception_3b_pool(x)
         out4 = self.inception_3b_pool_proj(out4)
         out4 = self.inception_3b_pool_proj_bn(out4)
         out4 = self.inception_3b_relu_pool_proj(out4)
 
-        #
         outputs = [out1, out2, out3, out4]
 
         return torch.cat(outputs, 1)
@@ -279,10 +264,10 @@ class Resnet_3D_3(nn.Module):
 
     def __init__(self):
         super(Resnet_3D_3, self).__init__()
-        #
+        
         self.res3a_2 = nn.Conv3d(96, 128, kernel_size=(
             3, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1))
-        #
+        
         self.res3a_bn = nn.BatchNorm3d(
             128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
         self.res3a_relu = nn.ReLU(inplace=True)
@@ -294,7 +279,7 @@ class Resnet_3D_3(nn.Module):
         self.res3b_1_relu = nn.ReLU(inplace=True)
         self.res3b_2 = nn.Conv3d(128, 128, kernel_size=(
             3, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1))
-        #
+        
         self.res3b_bn = nn.BatchNorm3d(
             128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
         self.res3b_relu = nn.ReLU(inplace=True)
@@ -324,7 +309,6 @@ class Resnet_3D_4(nn.Module):
     def __init__(self):
         super(Resnet_3D_4, self).__init__()
 
-        #
         self.res4a_1 = nn.Conv3d(128, 256, kernel_size=(
             3, 3, 3), stride=(2, 2, 2), padding=(1, 1, 1))
         self.res4a_1_bn = nn.BatchNorm3d(
@@ -332,14 +316,14 @@ class Resnet_3D_4(nn.Module):
         self.res4a_1_relu = nn.ReLU(inplace=True)
         self.res4a_2 = nn.Conv3d(256, 256, kernel_size=(
             3, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1))
-        #
+        
         self.res4a_down = nn.Conv3d(128, 256, kernel_size=(
             3, 3, 3), stride=(2, 2, 2), padding=(1, 1, 1))
-        #
+        
         self.res4a_bn = nn.BatchNorm3d(
             256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
         self.res4a_relu = nn.ReLU(inplace=True)
-        #
+        
         self.res4b_1 = nn.Conv3d(256, 256, kernel_size=(
             3, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1))
         self.res4b_1_bn = nn.BatchNorm3d(
@@ -347,7 +331,7 @@ class Resnet_3D_4(nn.Module):
         self.res4b_1_relu = nn.ReLU(inplace=True)
         self.res4b_2 = nn.Conv3d(256, 256, kernel_size=(
             3, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1))
-        #
+        
         self.res4b_bn = nn.BatchNorm3d(
             256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
         self.res4b_relu = nn.ReLU(inplace=True)
@@ -388,7 +372,7 @@ class Resnet_3D_5(nn.Module):
 
     def __init__(self):
         super(Resnet_3D_5, self).__init__()
-        #
+        
         self.res5a_1 = nn.Conv3d(256, 512, kernel_size=(
             3, 3, 3), stride=(2, 2, 2), padding=(1, 1, 1))
         self.res5a_1_bn = nn.BatchNorm3d(
@@ -396,14 +380,14 @@ class Resnet_3D_5(nn.Module):
         self.res5a_1_relu = nn.ReLU(inplace=True)
         self.res5a_2 = nn.Conv3d(512, 512, kernel_size=(
             3, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1))
-        #
+        
         self.res5a_down = nn.Conv3d(256, 512, kernel_size=(
             3, 3, 3), stride=(2, 2, 2), padding=(1, 1, 1))
-        #
+        
         self.res5a_bn = nn.BatchNorm3d(
             512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
         self.res5a_relu = nn.ReLU(inplace=True)
-        #
+        
         self.res5b_1 = nn.Conv3d(512, 512, kernel_size=(
             3, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1))
         self.res5b_1_bn = nn.BatchNorm3d(
@@ -411,7 +395,7 @@ class Resnet_3D_5(nn.Module):
         self.res5b_1_relu = nn.ReLU(inplace=True)
         self.res5b_2 = nn.Conv3d(512, 512, kernel_size=(
             3, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1))
-        #
+        
         self.res5b_bn = nn.BatchNorm3d(
             512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
         self.res5b_relu = nn.ReLU(inplace=True)
