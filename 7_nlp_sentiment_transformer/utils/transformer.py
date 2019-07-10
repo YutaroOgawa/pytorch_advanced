@@ -1,4 +1,4 @@
-# 第8章 自然言語処理による感情分析（Transformer）
+# 第7章 自然言語処理による感情分析（Transformer）
 # 実装参考に使用
 # https://towardsdatascience.com/how-to-code-the-transformer-in-pytorch-24db27c8f9ec
 
@@ -179,7 +179,7 @@ class ClassificationHead(nn.Module):
 # 最終的なTransformerモデルのクラス
 
 
-class TrasformerClassification(nn.Module):
+class TransformerClassification(nn.Module):
     '''Transformerでクラス分類させる'''
 
     def __init__(self, text_embedding_vectors, d_model=300, max_seq_len=256, output_dim=2):
