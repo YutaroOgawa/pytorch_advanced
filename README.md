@@ -31,6 +31,6 @@
 
 本GitHubのIssueにて、疑問点や修正点を管理しています。
 
-不明な点などがございましたら、まずはこちらをご覧ください。
+不明な点などがございましたら、こちらをご覧ください。
 
 https://github.com/YutaroOgawa/pytorch_advanced/issues
