@@ -26,7 +26,7 @@
 
 本書の詳細な内容については、以下で別途、解説しております。
 
-[「（Qiita記事）PyTorchによる発展ディープラーニング、各章の紹介」](https://qiita.com/sugulu)
+[「Qiita記事：PyTorchによる発展ディープラーニング、各章の紹介」](https://qiita.com/sugulu)
 
 <br>
 
