@@ -131,7 +131,7 @@ class BertEmbeddings(nn.Module):
 
 
 class BertLayer(nn.Module):
-    '''BERTのBertLayerモジュールです。Tranformerになります'''
+    '''BERTのBertLayerモジュールです。Transformerになります'''
 
     def __init__(self, config):
         super(BertLayer, self).__init__()
