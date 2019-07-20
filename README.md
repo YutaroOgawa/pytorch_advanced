@@ -37,3 +37,10 @@
 不明な点などがございましたら、こちらをご覧ください。
 
 https://github.com/YutaroOgawa/pytorch_advanced/issues
+
+### 3. 誤植について
+
+書籍中の誤植一覧はこちらになります。
+大変申し訳ございません。
+
+[誤植一覧](https://github.com/YutaroOgawa/pytorch_advanced/issues?q=is%3Aissue+is%3Aopen+label%3A%E8%AA%A4%E6%A4%8D)
