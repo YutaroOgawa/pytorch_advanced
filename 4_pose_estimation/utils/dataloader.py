@@ -236,7 +236,7 @@ def make_datapath_list(rootpath):
 
     for idx in train_indexes:
         img_idx = data_json[idx]['img_paths'][-16:-4]
-        anno_path = "./data/mask/train2014/mask_COCO_tarin2014_" + img_idx+'.jpg'
+        anno_path = "./data/mask/train2014/mask_COCO_train2014_" + img_idx+'.jpg'
         train_mask_list.append(anno_path)
 
     for idx in val_indexes:
