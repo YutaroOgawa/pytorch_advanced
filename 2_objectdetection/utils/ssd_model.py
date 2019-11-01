@@ -462,7 +462,7 @@ class DBox(object):
                 mean += [cx, cy, s_k, s_k]
 
                 # アスペクト比1の大きいDBox [cx,cy, width, height]
-                # 'max_sizes': [45, 99, 153, 207, 261, 315],
+                # 'max_sizes': [60, 111, 162, 213, 264, 315],
                 s_k_prime = sqrt(s_k * (self.max_sizes[k]/self.image_size))
                 mean += [cx, cy, s_k_prime, s_k_prime]
 
