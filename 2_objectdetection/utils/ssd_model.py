@@ -438,8 +438,13 @@ class DBox(object):
         self.feature_maps = cfg['feature_maps']
         self.num_priors = len(cfg["feature_maps"])  # sourceの個数=6
         self.steps = cfg['steps']  # [8, 16, …] DBoxのピクセルサイズ
-        self.min_sizes = cfg['min_sizes']  # [30, 60, …] 小さい正方形のDBoxのピクセルサイズ
-        self.max_sizes = cfg['max_sizes']  # [60, 111, …] 大きい正方形のDBoxのピクセルサイズ
+
+        self.min_sizes = cfg['min_sizes']
+        # [30, 60, …] 小さい正方形のDBoxのピクセルサイズ(正確には面積)
+
+        self.max_sizes = cfg['max_sizes']
+        # [60, 111, …] 大きい正方形のDBoxのピクセルサイズ(正確には面積)
+
         self.aspect_ratios = cfg['aspect_ratios']  # 長方形のDBoxのアスペクト比
 
     def make_dbox_list(self):
@@ -978,4 +983,3 @@ class MultiBoxLoss(nn.Module):
         loss_c /= N
 
         return loss_l, loss_c
-
