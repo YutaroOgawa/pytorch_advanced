@@ -45,8 +45,12 @@ class PositionalEncoder(nn.Module):
         for pos in range(max_seq_len):
             for i in range(0, d_model, 2):
                 pe[pos, i] = math.sin(pos / (10000 ** ((2 * i)/d_model)))
+
+                # 誤植_200510 #76
+                # pe[pos, i + 1] = math.cos(pos /
+                #                          (10000 ** ((2 * (i + 1))/d_model)))
                 pe[pos, i + 1] = math.cos(pos /
-                                          (10000 ** ((2 * (i + 1))/d_model)))
+                                          (10000 ** ((2 * i)/d_model)))
 
         # 表peの先頭に、ミニバッチ次元となる次元を足す
         self.pe = pe.unsqueeze(0)
