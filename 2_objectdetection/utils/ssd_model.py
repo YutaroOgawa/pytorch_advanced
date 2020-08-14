@@ -297,7 +297,7 @@ def od_collate_fn(batch):
     return imgs, targets
 
 
-# 34層にわたる、vggモジュールを作成
+# 35層にわたる、vggモジュールを作成
 def make_vgg():
     layers = []
     in_channels = 3  # 色チャネル数
