@@ -337,11 +337,11 @@ class COCOkeypointsDataset(data.Dataset):
 
         # 2. マスクとアノテーション読み込み
         mask_miss = cv2.imread(self.mask_list[index])
-        meat_data = self.meta_list[index]
+        meta_data = self.meta_list[index]
 
         # 3. 画像前処理
         meta_data, img, mask_miss = self.transform(
-            self.phase, meat_data, img, mask_miss)
+            self.phase, meta_data, img, mask_miss)
 
         # 4. 正解アノテーションデータの取得
         mask_miss_numpy = mask_miss.numpy().transpose((1, 2, 0))
